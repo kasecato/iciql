@@ -1,0 +1,1 @@
+java -cp postgresql-9.3-1102.jdbc41.jar -jar iciql-1.5.0.jar -url jdbc:postgresql://localhost:5432/sqlsenryu -user sqlsenryu -password sqlsenryu -schema public -table sqlsenryu -package com.iciql.sample.model.sqlsenryu -folder . -annotateSchema true -trimStrings false
