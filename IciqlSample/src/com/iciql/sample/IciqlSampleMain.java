@@ -1,13 +1,13 @@
 package com.iciql.sample;
 
-import java.sql.Timestamp;
-import java.util.List;
-
 import com.iciql.Db;
 import com.iciql.sample.constraint.CommonConst;
 import com.iciql.sample.model.senryu.Senryu;
 
-public class IcliqlSampleMain {
+import java.sql.Timestamp;
+import java.util.List;
+
+public class IciqlSampleMain {
 
     public static void main(String[] args) {
 
@@ -56,9 +56,7 @@ public class IcliqlSampleMain {
             dbData
                     .stream()
                     .filter(x -> x.category.equals(CommonConst.Category.SQLite))
-                    .forEach(y -> {
-                        print(y);
-                    });
+                    .forEach(IciqlSampleMain::print);
 
             /*==================================================
              * SQL DSL > Update Statements

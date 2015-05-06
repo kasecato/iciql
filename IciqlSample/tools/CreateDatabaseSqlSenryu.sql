@@ -7,12 +7,11 @@ SET client_min_messages = warning;
 
 DROP DATABASE sqlsenryu;
 
+-- noinspection SqlResolveInspection
 CREATE DATABASE sqlsenryu WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'ja_JP.UTF-8' LC_CTYPE = 'ja_JP.UTF-8';
 
 
 ALTER DATABASE sqlsenryu OWNER TO sqlsenryu;
-
-\connect sqlsenryu
 
 CREATE TABLE senryu (
     id_senryu bigint NOT NULL,
