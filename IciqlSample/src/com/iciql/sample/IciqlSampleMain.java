@@ -6,8 +6,10 @@ import com.iciql.sample.model.senryu.Senryu;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
-public class IciqlSampleMain {
+class IciqlSampleMain {
 
     public static void main(String[] args) {
 
@@ -43,11 +45,12 @@ public class IciqlSampleMain {
             /*==================================================
              * Lambda Expression
              *==================================================*/
+            final Function<String, Predicate<Senryu>> getCategory
+                    = category -> senryu -> senryu.category.equals(category);
+
             dbData
                     .stream()
-                    .filter(
-                            x -> x.category
-                                    .equals(CommonConst.Category.PostgreSQL))
+                    .filter(getCategory.apply(CommonConst.Category.PostgreSQL))
                     .forEach(y -> {
                         print(y);
                         update(y);
@@ -55,7 +58,7 @@ public class IciqlSampleMain {
 
             dbData
                     .stream()
-                    .filter(x -> x.category.equals(CommonConst.Category.SQLite))
+                    .filter(getCategory.apply(CommonConst.Category.SQLite))
                     .forEach(IciqlSampleMain::print);
 
             /*==================================================
